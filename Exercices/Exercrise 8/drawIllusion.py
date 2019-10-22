@@ -1,32 +1,50 @@
+import math
 import turtle
 
 
-def drawGrid(colorGrid, sizeSquare, sizeImage):
-    turtle.setup(sizeImage, sizeImage)
-    print("drawingRectangle")
-    bob = turtle.Turtle()
-    bob.color(colorGrid)
-    bob.pensize(5)
+def drawingMachine(bob,xPos, yPos,squareSize,squareColor,gridColor,circleColor):
     bob.penup()
-    bob.setx(-sizeImage/2)
-    bob.sety(sizeImage/2)
-    while bob.position < sizeImage:
+    bob.color(gridColor)
+    bob.goto(xPos,yPos)
+    bob.fillcolor(squareColor)
+
+    bob.begin_fill()
+    bob.pendown()
+    for x in range(4):
+        bob.right(90)
+        bob.forward(squareSize)
+    bob.end_fill()
+
+    for x in range(4):
+        bob.color(circleColor)
+        bob.fillcolor(circleColor)
+        bob.dot(8)
+        bob.penup()
+        bob.right(90)
+        bob.forward(squareSize)
         bob.pendown()
-        bob.fd(sizeImage)
+
+'''This function draws a rectangle and draws dots in the corner of the rectangles'''
+
+def drawIllusion(gridColor, squareColor, circleColor, imgSize, squareSize, gridWidth):
 
 
-def drawIllusion(colorGrid, colorSquare, colorCircles, sizeImage, sizeSquare, sizeCircle):
+    turtle.setup(imgSize, imgSize)
+    bob = turtle.Turtle() # creating a turtle
+    bob.speed(0)  # max speed
+    bob.pensize(gridWidth)
+
+    for x in range(0,(math.ceil(imgSize/squareSize))):     # deciding how many squares to draw horizontally
+        for y in range(0,(math.ceil(imgSize/squareSize))): # deciding how many squares to draw vertically
+            drawingMachine(bob,(-imgSize/2)+squareSize+(y*squareSize),imgSize/2-(x*squareSize),squareSize,squareColor, gridColor, circleColor)
+
+    turtle.done() # keeping the display after drawing is done
+
+'''Function that sets up the '''
 
 
-    drawGrid(colorGrid, sizeSquare, sizeImage)
-
-    turtle.done()
 
 
-
-def main():
-    drawIllusion("red",2,3,400,5,6)
-
-
-if __name__ == '__main__':
-    main()
+if __name__ == "__main__":
+    ultramarine = "#003E52"
+    drawIllusion("white", ultramarine,"light grey",800,100,6)

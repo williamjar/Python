@@ -7,7 +7,6 @@ def parseTextFile(filename):
 
     return textArray
 
-
 '''
 Function parses the textfile into something that is directly compatible with sorting
 

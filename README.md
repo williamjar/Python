@@ -1,3 +1,3 @@
 # Python
 
-Python code from my computer engineering course
+Python code from my computer engineering course. 

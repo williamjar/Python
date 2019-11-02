@@ -29,6 +29,8 @@ class Circle(object):
     def perimeter(self):
         return 2.0 * math.pi * self.radius
 
+    __perimeter = perimeter
+
     @classmethod  # alternative constructor
     def from_bbd(cls, bbd):
         """Construct a circle from a bounding box diagonal"""
@@ -40,8 +42,16 @@ class Circle(object):
         """Convert angle in degree to percentage grade"""
         return math.tan(math.radians(angle)) * 100.0
 
+
+
+
 #   Important lessons
 #   Supply the customer with alternative constructors
 #   You can expose the attributes
 #   Instance variables are only variables that are unique to the instance
 #   Python does not use get or set, you can add property later
+
+# test methods
+c = Circle(10)
+print(c.area())
+print(c.perimeter())
